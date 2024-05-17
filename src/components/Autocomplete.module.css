@@ -1,0 +1,143 @@
+.autocomplete {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Nunito', sans-serif;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  width: calc(100% - 40px);
+  padding: 12px 20px;
+  border: 2px solid rgba(221, 221, 221, 0.7);
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+  backdrop-filter: blur(5px);
+  font-family: 'Nunito', sans-serif;
+}
+
+.input::placeholder {
+  font-family: 'Nunito', sans-serif;
+}
+
+.input:focus {
+  border-color: #BB2333;
+  box-shadow: 0 0 8px rgba(86, 51, 54, 0.5);
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.spinner {
+  position: absolute;
+  right: 10%;
+  top: 20%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-top: 2px solid #BB2333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.suggestions {
+  position: absolute;
+  width: calc(100% - 40px);
+  list-style-type: none;
+  border: 1px solid rgba(204, 204, 204, 0.7);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(86, 51, 54, 0.5);
+  margin: 0;
+  padding: 0;
+  backdrop-filter: blur(5px);
+}
+
+.suggestions::-webkit-scrollbar {
+  width: 8px;
+}
+
+.suggestions::-webkit-scrollbar-thumb {
+  background-color: rgba(135, 15, 27, 0.769);
+  border-radius: 4px;
+}
+
+.suggestion {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  font-family: 'Nunito', sans-serif;
+}
+
+.suggestion:hover,
+.highlighted {
+  background-color: rgba(224, 224, 224, 0.9);
+}
+
+.suggestion span {
+  display: inline;
+  font-weight: 400;
+  color: #000000;
+}
+
+@media (max-width: 600px) {
+  .input {
+    font-size: 14px;
+    padding: 10px 16px;
+    width: calc(100% - 30px);
+  }
+
+  .suggestions {
+    width: calc(100% - 30px);
+  }
+
+  .suggestion {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .spinner {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .input {
+    font-size: 12px;
+    padding: 8px 14px;
+    width: calc(100% - 26px);
+  }
+
+  .suggestions {
+    width: calc(100% - 26px);
+  }
+
+  .suggestion {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
+
+  .spinner {
+    width: 14px;
+    height: 14px;
+		right: 15%;
+  }
+}
